@@ -1,0 +1,16 @@
+<html>
+    <head>
+
+    </head>
+    <body onload="logout()">
+
+    </body>
+
+    <script>
+        function logout(){
+            sessionStorage.removeItem("role");
+            sessionStorage.removeItem("email");
+            window.location.href = 'http://localhost/truckee/admin/index.html';
+        }
+    </script>
+</html>

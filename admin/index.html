@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Login Truckee</title>
+  <!-- base:css -->
+  <link rel="stylesheet" href="assets/vendors/mdi/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="assets/vendors/feather/feather.css">
+  <link rel="stylesheet" href="assets/vendors/base/vendor.bundle.base.css">
+  <link href="assets/fontawesome/css/all.css" rel="stylesheet">
+  <!-- endinject -->
+  <!-- plugin css for this page -->
+  <!-- End plugin css for this page -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <!-- endinject -->
+  <link rel="shortcut icon" href="assets/images/favicon.png" />
+</head>
+
+<body>
+  <div class="container-scroller">
+    <div class="container-fluid page-body-wrapper full-page-wrapper">
+      <div class="content-wrapper d-flex align-items-center auth px-0">
+        <div class="row w-100 mx-0">
+          <div class="col-lg-4 mx-auto">
+            <div class="auth-form-light text-left py-5 px-4 px-sm-5">
+              <div class="brand-logo">
+                <img src="assets/images/auth/logo.png" alt="logo">
+              </div>
+              <h4>Hello! Admin</h4>
+              <h6 class="font-weight-light">Sign in to continue.</h6>
+              <div id="alert" class="alert alert-danger" role="alert" style="display: none;">
+                            
+              </div>
+              <form class="pt-3" onsubmit="send(event)" method="post" action="" enctype="multipart/form-data">
+                <div class="form-group">
+                  <input type="email" class="form-control form-control-lg" id="email" placeholder="Username">
+                </div>
+                <div class="form-group">
+                  <input type="password" class="form-control form-control-lg" id="password" placeholder="Password">
+                </div>
+                <div class="my-2 d-flex justify-content-between align-items-center">
+                  <div class="form-check">
+                    <label class="form-check-label text-muted">
+                      <input type="checkbox" class="form-check-input">
+                      Keep me signed in
+                    </label>
+                  </div>
+                  <!-- <a href="#" class="auth-link text-black">Forgot password?</a> -->
+                </div>
+                <div class="mt-3">
+                  <button type="submit" name="submit" id="submit" class="btn btn-block btn-info btn-lg font-weight-medium auth-form-btn">LOGIN</button>
+                </div>
+                
+                <!-- <div class="mb-2">
+                  <button type="button" class="btn btn-block btn-facebook auth-form-btn">
+                    <i class="mdi mdi-facebook mr-2"></i> Connect using facebook
+                  </button>
+                </div>
+                <div class="text-center mt-4 font-weight-light">
+                  Don't have an account? <a href="register.html" class="text-primary">Create</a>
+                </div> -->
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- content-wrapper ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
+  <!-- base:js -->
+  <script>
+    function send(e) {
+       e.preventDefault();
+       var submitButton = document.getElementById("submit");
+       submitButton.innerHTML = '<i style="color: #ffffff;" class="fa fa-spinner fa-spin"></i>';
+
+      //  var name = $("#name").val();
+       var email = $("#email").val();
+       var password = $("#password").val();
+      //  var phone_number = $("#phone_number").val();
+      //  var postal_address = $("#address").val();
+
+       var alerts = document.getElementById("alert");
+
+
+       // if(confirmPassword !== password){
+       //     var small = document.getElementById("small");
+       //     small.style.display = "block";
+       //     submitButton.innerHTML = '<span style="font-size:20px; color:#ffffff;">Register</span>';
+       //     return;
+       // }
+
+
+
+
+       var response = $.ajax({
+           url : 'http://localhost/truckee/api/admin/login.php',
+           type : 'post',
+           contentType : 'application/json',
+           data: JSON.stringify({"email": email,"password": password}),
+           dataType : 'json'
+       });
+
+       response.done(data => {
+           if(data.status){
+            sessionStorage.setItem("role", "admin");
+            sessionStorage.setItem("email",email);
+            window.location.href = 'http://localhost/truckee/admin/dashboard.html';
+           }else{
+               alerts.style.display = "block";
+               alerts.innerText = data.message;
+               console.log("hello");
+               submitButton.innerHTML = '<span style="font-size:20px; color:#ffffff;">Submit</span>';
+           }
+       });
+       }
+ </script>
+  <script src="assets/vendors/base/vendor.bundle.base.js"></script>
+  <!-- endinject -->
+  <!-- inject:js -->
+  <script src="assets/js/off-canvas.js"></script>
+  <script src="assets/js/hoverable-collapse.js"></script>
+  <script src="assets/js/template.js"></script>
+  <!-- endinject -->
+</body>
+
+</html>

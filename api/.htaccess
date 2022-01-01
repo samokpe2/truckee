@@ -1,0 +1,19 @@
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.html -f
+RewriteRule ^(.*)$ $1.html
+
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php
+
+# 1 ---- Establish a custom 404 File not Found page ----
+
+#ErrorDocument 404 http://localhost/docs/404
+
+# 2 ---- Prevent directory file listing in all of your folders ----
+
+IndexIgnore *
+
+# ---- Make pages render without their extension in the url ----
+
+Options +MultiViews

@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags --> 
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>View Clients</title>
+  <!-- base:css -->
+  <link rel="stylesheet" href="assets/vendors/mdi/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="assets/vendors/feather/feather.css">
+  <link rel="stylesheet" href="assets/vendors/base/vendor.bundle.base.css">
+  <!-- endinject -->
+  <!-- plugin css for this page -->
+  <link rel="stylesheet" href="assets/vendors/flag-icon-css/css/flag-icon.min.css"/>
+  <link rel="stylesheet" href="assets/vendors/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="assets/vendors/jquery-bar-rating/fontawesome-stars-o.css">
+  <link rel="stylesheet" href="assets/vendors/jquery-bar-rating/fontawesome-stars.css">
+  <!-- End plugin css for this page -->
+  <link href="assets/fontawesome/css/all.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <!-- inject:css -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <!-- endinject -->
+  <link rel="shortcut icon" href="assets/images/favicon.png" />
+</head>
+<body onload="checkLogin()">
+  <div class="container-scroller">
+    <!-- partial:partials/_navbar.html -->
+    <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+      <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+        <a class="navbar-brand brand-logo text-white" href="dashboard.html">Truckee Admin</a>
+        <a class="navbar-brand brand-logo-mini" href="dashboard.html"><img src="assets/images/logo-mini.svg" alt="logo"/></a>
+      </div>
+      <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+        <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+          <span class="icon-menu"></span>
+        </button>
+        <ul class="navbar-nav mr-lg-2">
+        </ul>
+        <ul class="navbar-nav navbar-nav-right">
+          <li class="nav-item dropdown d-flex">
+            
+          </li>
+          <li class="nav-item dropdown d-flex mr-4 ">
+            
+          </li>
+          <li class="nav-item dropdown mr-4 d-lg-flex d-none">
+            
+          </li>
+        </ul>
+        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+          <span class="icon-menu"></span>
+        </button>
+      </div>
+    </nav>
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:partials/_sidebar.html -->
+      <nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <div class="user-profile">
+          <!-- <div class="user-image">
+            <img src="assets/images/faces/face28.png">
+          </div> -->
+          <div class="user-name" id="user_name">
+            <i style="color: #FFFFFF;" class="fa fa-spinner fa-spin"></i>
+          </div>
+          <!-- <div class="user-designation">
+              Developer
+          </div> -->
+        </div>
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link" href="dashboard.html">
+              <i class="icon-box menu-icon"></i>
+              <span class="menu-title">Dashboard</span>
+            </a>
+          </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+              <i class="icon-disc menu-icon"></i>
+              <span class="menu-title">UI Elements</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="ui-basic">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Buttons</a></li>
+                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Typography</a></li>
+              </ul>
+            </div>
+          </li> -->
+          <li class="nav-item">
+            <a class="nav-link" href="viewclient.html">
+              <i class="icon-plus menu-icon"></i>
+              <span class="menu-title">View Clients</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="viewtruckdriver.html">
+              <i class="icon-grid menu-icon"></i>
+              <span class="menu-title">View Truck Drivers</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="checkvalidity.html">
+              <i class="icon-file menu-icon"></i>
+              <span class="menu-title">Check Ticket Validity</span>
+            </a>
+          </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link" href="pages/icons/feather-icons.html">
+              <i class="icon-help menu-icon"></i>
+              <span class="menu-title">Icons</span>
+            </a>
+          </li> -->
+          <!-- <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
+              <i class="icon-head menu-icon"></i>
+              <span class="menu-title">User Pages</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="auth">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="pages/samples/login.html"> Login </a></li>
+                <li class="nav-item"> <a class="nav-link" href="pages/samples/login-2.html"> Login 2 </a></li>
+                <li class="nav-item"> <a class="nav-link" href="pages/samples/register.html"> Register </a></li>
+                <li class="nav-item"> <a class="nav-link" href="pages/samples/register-2.html"> Register 2 </a></li>
+                <li class="nav-item"> <a class="nav-link" href="pages/samples/lock-screen.html"> Lockscreen </a></li>
+              </ul>
+            </div>
+          </li> -->
+          <li class="nav-item">
+            <a class="nav-link" href="logout.html">
+              <i class="icon-cross menu-icon"></i>
+              <span class="menu-title">Logout</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <!-- partial -->
+      <div class="main-panel">
+        <div class="content-wrapper">
+          <div class="row">
+            <div class="col-sm-12 mb-4 mb-xl-0">
+              <h4 class="font-weight-bold text-dark">Hi, Welcome back!</h4>
+              <br>
+              <div class="col-12 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                      <h4 class="card-title">Clients</h4>
+                      <p class="card-description">
+                        View all your turck drivers
+                      </p>
+                      <div class="table-responsive">
+                        <table class="table table-hover">
+                          <thead>
+                            <tr>
+                              <th>Name</th>
+                              <th>Phone Number</th>
+                              <th>Email</th>
+                              <th>Postal Address</th>
+                              <th>Action</th>
+                            </tr>
+                          </thead>
+                          <tbody id="tbody">
+                            <!-- <i style="color: #000000;" class="fa fa-spinner fa-spin"></i> -->
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                    </div>
+              </div>
+            </div>
+          </div>
+          
+      </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+        <footer class="footer">
+          <div class="d-sm-flex justify-content-center justify-content-sm-between">
+            
+          </div>
+        </footer>
+        <!-- partial -->
+      </div>
+      <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
+  <script>
+    function checkLogin(){
+        if(!(sessionStorage.getItem("email") && sessionStorage.getItem("role"))){
+        window.location.href = "http://localhost/truckee/admin/index.html";
+      }
+      var email = sessionStorage.getItem("email");
+
+      var response = $.ajax({
+           url : 'http://localhost/truckee/api/client/getAll.php',
+           type : 'post',
+           contentType : 'application/json',
+           data: JSON.stringify({"email": email}),
+           dataType : 'json'
+       });
+
+       response.done(data => {
+           if(data.status){
+            // var counttruckdrivers = document.getElementById("counttruckdrivers");
+            // counttruckdrivers.innerText = data.data;
+            table = "";
+            for(i=0; i<data.data.length; i++){
+              datas = data.data;
+                table = table + `<tr>
+                                <td>${datas[i].name}</td>
+                                <td>${datas[i].phone_number}</td>
+                                <td>${datas[i].email}</td>
+                                <td>${datas[i].postal_address}</td>
+                                <td><a href="${datas[i].blacklist}" class="btn btn-outline-danger"> ${datas[i].word} </a></td>
+                            </tr>`;
+
+            }
+
+            var tbody = document.getElementById("tbody");
+            tbody.innerHTML = table;
+           }else{
+              //  alerts.style.display = "block";
+              //  alerts.innerText = data.message;
+              //  console.log("hello");
+              //  submitButton.innerHTML = '<span style="font-size:20px; color:#ffffff;">Submit</span>';
+           }
+       });
+
+       var response3 = $.ajax({
+        url : 'http://localhost/truckee/api/admin/getName.php',
+           type : 'post',
+           contentType : 'application/json',
+           data: JSON.stringify({"email": email}),
+           dataType : 'json'
+       });
+
+       response3.done(data => {
+           if(data.status){
+            var name = document.getElementById("user_name");
+            name.innerText = data.data;
+           }else{
+              //  alerts.style.display = "block";
+              //  alerts.innerText = data.message;
+              //  console.log("hello");
+              //  submitButton.innerHTML = '<span style="font-size:20px; color:#ffffff;">Submit</span>';
+           }
+       });
+
+
+       
+
+
+
+
+
+      
+    }
+
+
+    // function blacklist(obj, e){
+    //     e.preventDefault();
+    //     console.log(e);
+    //     var response = $.ajax({
+
+    //     url : obj.href,
+    //        type : 'post',
+    //        contentType : 'application/json',
+    //        data: JSON.stringify({"email": "hi"}),
+    //        dataType : 'json'
+    //    });
+
+    //    response.done(data => {
+    //        if(data.status){
+    //         obj.innerText = "WhiteList Client"
+    //         alert(data.message);
+    //        }else{
+    //           alert(data.message);
+    //        }
+    //    });
+
+    // }
+  </script>
+  <!-- base:js -->
+  <script src="assets/vendors/base/vendor.bundle.base.js"></script>
+  <!-- endinject -->
+  <!-- Plugin js for this page-->
+  <!-- End plugin js for this page-->
+  <!-- inject:js -->
+  <script src="assets/js/off-canvas.js"></script>
+  <script src="assets/js/hoverable-collapse.js"></script>
+  <script src="assets/js/template.js"></script>
+  <!-- endinject -->
+  <!-- plugin js for this page -->
+  <script src="assets/vendors/chart.js/Chart.min.js"></script>
+  <script src="assets/vendors/jquery-bar-rating/jquery.barrating.min.js"></script>
+  <!-- End plugin js for this page -->
+  <!-- Custom js for this page-->
+  <script src="assets/js/dashboard.js"></script>
+  <!-- End custom js for this page-->
+</body>
+
+</html>
+
